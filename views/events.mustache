@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlumniFushion - Event Form</title>
+  <link rel="stylesheet" href="../output.css">
+</head>
+
+<body class="bg-gray-100"> 
+<!-- navbar goes here -->
+<nav class="bg-gray-100">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between">
+
+      <div class="flex space-x-4">
+        <!-- logo -->
+        <div>
+          <a href="#" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
+            <svg class="h-6 w-6 mr-1 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+            <span class="font-bold">ALUMNIFUSHION</span>
+          </a>
+        </div>
+
+        <!-- primary nav -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="l" class="py-5 px-3 text-gray-700 hover:text-gray-800">Home</a>
+          <a href="./" class="py-5 px-3 text-gray-700 hover:text-gray-800">About Us</a>
+          <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-800">My Events</a>
+          <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-800">Contact Us</a>
+        </div>
+      </div>
+
+      <!-- secondary nav -->
+      <div class="hidden md:flex items-center space-x-1">
+        <a href="../pages/signup.html" class="py-5 px-3">Sign In</a>
+        <a href="../pages/event.html" class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Create Event</a>
+      </div>
+
+      <!-- mobile button goes here -->
+      <div class="md:hidden flex items-center">
+        <button class="mobile-menu-button">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div class="max-w-md mx-auto mt-20 bg-white p-8 border border-gray-300 shadow-sm">
+    <h2 class="text-2xl text-center mb-4">Alumni Event Form</h2>
+
+    <div class="container">
+      <div class="flex justify-center">
+        <button id="addEventButton" href="/event/event"
+          class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          Add Event
+        </button>
+      </div>
+
+      <div id="eventForm" class="hidden">
+        <form action="/alumni-events" method="POST">
+          <div class="mb-4">
+            <label for="eventname" class="block text-gray-700 text-sm font-bold mb-2">Event Name:</label>
+            <input name="eventname"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text" placeholder="Enter the event name" required>
+          </div>
+          <div class="mb-4">
+            <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Event Category:</label>
+            <select name="category" required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-indigo-100">
+              <option value="" disabled selected>Select an event category</option>
+              <option value="Networking">Networking</option>
+              <option value="Social">Social</option>
+              <option value="Professional Development">Professional Development</option>
+              <option value="Community Service">Community Service</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Event Date:</label>
+            <input name="date"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="date" required>
+          </div>
+          <div class="mb-4">
+            <label for="location" class="block text-gray-700 text-sm font-bold mb-2">Event Location:</label>
+            <input name="location"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text" placeholder="Enter the event location" required>
+          </div>
+          <div class="mb-4">
+            <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Event
+              Description:</label>
+            <textarea name="description"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              rows="4" placeholder="Enter the event description" required></textarea>
+          </div>
+          <div class="flex justify-between mt-4">
+            <button
+              class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit">Create Event</button>
+            <button id="cancelEventButton"
+              class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="flex flex-wrap justify-center">
+    {{#eventData}}
+    <div class="max-w-md mx-4 mt-20 bg-white p-8 border border-gray-300 shadow-sm mb-4">
+      <h2 class="text-2xl text-center mb-4">Alumni Event Card</h2>
+      <div id="eventCard{{eventid}}" class="mb-4">
+        <div class="font-bold mb-2">Event Name: <span id="eventName{{eventid}}">{{eventname}}</span></div>
+        <div class="mb-2">Event Category: <span id="eventCategory{{eventid}}">{{category}}</span></div>
+        <div class="mb-2">Event Date: <span id="eventDate{{eventid}}">{{date}}</span></div>
+        <div class="mb-2">Event Location: <span id="eventLocation{{eventid}}">{{location}}</span></div>
+        <div class="mb-2">Event Description: <span id="eventDescription{{eventid}}">{{description}}</span></div>
+      </div>
+      <div class="flex justify-between">
+        <button  id="{{ id }}" class="edit-event-button px-4 py-2 bg-blue-500 text-white">Edit</button>
+        <button  id="{{ id }}" class="delete-event-button px-4 py-2 bg-red-500 text-white">Delete</button>
+      </div>
+    </div>
+
+
+    <div id="{{ id }}" 
+      class="edit-event-modal fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+      <div class="bg-white p-8 border border-gray-300 shadow-md">
+        <h2 class="text-2xl text-center mb-4">Edit Event</h2>
+        <form class="edit-form" action="/alumni-events/{{ id }}" method="POST">
+          <div class="mb-2">
+            <label for="eventname" class="block font-bold mb-1">Event Name:</label>
+            <input type="text" name="eventname" id="name"
+              class="w-full border border-gray-300 rounded px-2 py-1" value="{{eventname}}">
+          </div>
+          <div class="mb-2">
+            <label for="category" class="block font-bold mb-1">Event Category:</label>
+            <input type="text" name="category" id="category"
+              class="w-full border border-gray-300 rounded px-2 py-1" value="{{category}}">
+          </div>
+          <div class="mb-2">
+            <label for="date" class="block font-bold mb-1">Event Date:</label>
+            <input type="date" name="date" id="date"
+              class="w-full border border-gray-300 rounded px-2 py-1" value="{{date}}">
+          </div>
+          <div class="mb-2">
+            <label for="location" class="block font-bold mb-1">Event Location:</label>
+            <input type="text" name="location" id="location"
+              class="w-full border border-gray-300 rounded px-2 py-1" value="{{location}}">
+          </div>
+          <div class="mb-2">
+            <label for="description" class="block font-bold mb-1">Event Description:</label>
+            <input type="text" name="description" id="description"
+              class="w-full border border-gray-300 rounded px-2 py-1" value="{{description}}">
+          </div>
+          <div class="flex justify-between">
+            <button type="submit" class="px-4 py-2 bg-blue-500 text-white"
+             >Save</button>
+            <button type="button" class="px-4 py-2 bg-red-500 text-white"
+              >Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- delete event -->
+    <div id="{{ id }}" 
+      class="delete-event-modal fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+      <div class="bg-white p-8 border border-gray-300 shadow-md">
+        <h2 class="text-2xl text-center mb-4">Edit Event</h2>
+        <form class="delete-form" action="/alumni-events/delete/{{ id }}" method="POST">
+          <p>Do you want to delete?</p>
+          <div class="flex justify-between">
+            <button type="submit" class="px-4 py-2 bg-blue-500 text-white"
+             >Delete</button>
+            <button type="button" class="px-4 py-2 bg-red-500 text-white"
+              >Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {{/eventData}}
+  </div>
+
+   <script src="/Js/deleteEvent.js"></script>
+  <script src="/Js/updateEvent.js" ></script>
+</body>
+
+</html>

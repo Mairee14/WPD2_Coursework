@@ -1,0 +1,12 @@
+{
+    "watch": [
+      "app.js", 
+      "controllers", 
+      "models", 
+      "routes", 
+      "lib",
+    "views"
+    ],
+      "ext":"js,css, mustache, html"
+  }
+  
