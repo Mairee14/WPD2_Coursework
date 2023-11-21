@@ -42,8 +42,10 @@ const eventformroutes =require("./routes/eventformroutes");
 //views routing
 app.use("/form", formRoutes);//routes for both login and signup
 app.use("/manager", userRoutes); //routing for the user data from the signup
-app.use("/events", eventRoutes);
-app.use("/eventPage", eventformroutes );
+app.use("/alumni-events", eventRoutes);
+app.use("/event", eventformroutes );
+
+
 
 
   
