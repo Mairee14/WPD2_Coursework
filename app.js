@@ -1,60 +1,78 @@
 const express = require('express');
-const path = require("path");
-const app = express();
-const dotenv = require('dotenv');
+const path = require('path');
+const session = require('express-session');
+const passport = require('passport');
 const connectDB = require('./config/mongoDB');
+const dotenv = require('dotenv');
+const flash = require('connect-flash');
 
-
-//load config
+// Load environment variables
 dotenv.config({ path: './config/config.env' });
 
-//connect to database
+// Connect to the database
 connectDB();
 
-//mustache engine
-const mustache = require("mustache-express");
-app.engine("mustache", mustache());
-app.set("view engine", "mustache");
+// Mustache engine
+const mustache = require('mustache-express');
+const app = express();
+
+app.engine('mustache', mustache());
+app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
 
-
-  // Routes
-//   app.use('/', require('./routes/index'))
-//   app.use('/auth', require('./routes/auth'))
-//   app.use('/stories', require('./routes/stories'))
-
-//middlewares
-const public = path.join(__dirname, "public");
+// Middlewares
+const public = path.join(__dirname, 'public');
 app.use(express.static(public));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//user routes
-const userRoutes = require("./routes/backendroutes/userRoutes");
-const eventRoutes = require("./routes/backendroutes/eventRoutes");
 
-//Require routes
-const formRoutes = require("./routes/formRoutes");
-const eventformroutes =require("./routes/eventformroutes");
+const crypto = require('crypto');
 
+// Function to generate a secure session key
+const generateSessionKey = () => {
+  return crypto.randomBytes(64).toString('hex');
+};
 
-
-//views routing
-app.use("/form", formRoutes);//routes for both login and signup
-app.use("/manager", userRoutes); //routing for the user data from the signup
-app.use("/alumni-events", eventRoutes);
-app.use("/event", eventformroutes );
+// Example usage
+const sessionKey = generateSessionKey();
+console.log('Generated Session Key:', sessionKey);
 
 
 
 
-  
-
-//Routes
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT,
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+// Sessions middleware with a generated secure key
+app.use(
+  session({
+    secret: generateSessionKey(), // Using the generated session key
+    resave: false,
+    saveUninitialized: false,
+  })
 );
 
+// Passport middleware initialization
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
+// Import and use your user model
+const User = require('./models/userModels');
+
+
+// Your routes
+const userRoutes = require('./routes/backendroutes/userRoutes');
+const eventRoutes = require('./routes/backendroutes/eventRoutes');
+const formRoutes = require('./routes/formRoutes');
+const eventformroutes = require('./routes/eventformroutes');
+
+// Use routes
+app.use('/form', formRoutes);
+app.use('/manager', userRoutes);
+app.use('/alumni-events', eventRoutes);
+app.use('/event', eventformroutes);
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () =>
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+);
