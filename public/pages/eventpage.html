@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../output.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+        <title></title>
+    </head>
+
+    <body>
+           <!--narbar menu starts here-->
+        <nav class="relative px-4 py-4 flex justify-between items-center bg-red-500">
+            <div class="flex-shrink-0">
+                <a href="/" class="text-white logo">
+                    <img src="../images/logo.png" alt="Alumni Grad Cap" class="inline-block">
+                    alumniFushion
+                </a>
+            </div>
+            <div class="lg:hidden">
+                <button class="navbar-burger flex items-center text-white p-3">
+                    <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="">
+                        <title>Mobile menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                    </svg>
+
+                </button>
+            </div>
+            <ul
+                class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6 navbar-menu">
+
+                <li><a class="text-lg text-sm text-white hover:text-white-500 " href="/">Home</a></li>
+
+                <li><a class="text-lg text-sm text-white" href="/about">About Us</a></li>
+
+                <li><a class=" text-lg text-sm text-white hover:text-white-500" href="/eventPage/event">Events</a></li>
+
+                </li>
+
+                <li class="text-white-300">
+                    <svg="" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                </li>
+                <li><a class="text-lg text-sm text-white hover:text-white-500" href="/contact">Contact</a>
+                </li>
+            </ul>
+            <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-white-50 hover:bg-white-100 text-sm text-white font-bold  rounded-xl transition duration-200"
+                href="/form/login">Sign In</a>
+            <a class="hidden lg:inline-block py-2 px-6 bg-red-300 hover:bg-red-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                href="/form/signup">Sign up</a>
+        </nav>
+
+        <div class="navbar-menu relative z-50 hidden">
+            <div class="navbar-backdrop fixed inset-0 bg-white-800 opacity-25"></div>
+            <nav
+                class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+                <div class="flex items-center mb-8">
+                    <div class="flex-shrink-0">
+                        <a href="/" class="text-white logo">
+                            <img src="../images/logo.png" alt="Alumni Grad Cap" class="inline-block">
+                            alumniFushion
+                        </a>
+                    </div>
+                    <button class="navbar-close">
+                        <svg class="h-6 w-6 text-gray cursor-pointer hover:text-gray-500" xmlns="" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div>
+                    <ul>
+                        <li class="mb-1">
+                            <a class="block p-4 text-sm font-bold text-gray hover:bg-blue-50 hover:text-blue-600 rounded"
+                                href="/">Home</a>
+                        </li>
+                        <li class="mb-1">
+                            <a class="block p-4 text-sm font-bold text-gray hover:bg-blue-50 hover:text-blue-600 rounded"
+                                href="/about">About Us</a>
+                        </li>
+                        <li class="mb-1">
+                            <a class="block p-4 text-sm font-bold text-gray hover:bg-blue-50 hover:text-blue-600 rounded"
+                                href="/eventPage/event">Events</a>
+                        </li>
+
+                        <li class="mb-1">
+                            <a class="block p-4 text-sm font-bold text-gray hover:bg-blue-50 hover:text-blue-600 rounded"
+                                href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-auto">
+                    <div class="pt-6">
+                        <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
+                            href="/form/login">Sign in</a>
+                        <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-green-400 hover:bg-green-500 rounded-xl"
+                            href="/form/signup">Sign Up</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--narbar menu ends here-->
+
+
+        <div class="relative bg-cover bg-no-repeat bg-center" style="min-height: 400px; background-image: url('../images/networking.jpg')">
+            <div class="flex flex-col justify-center items-center absolute inset-0 bg-black opacity-75 text-center text-white p-10">
+                <h2 class="font-serif text-2xl md:text-3xl">Finding Upcoming Events</h2>
+                <p>Join us for an evening of networking and camaraderie as we bring together alumni from diverse industries and backgrounds.</p>
+                <button class="bg-transparent hover:bg-white text-white font-bold hover:text-black py-2 px-4 my-4 border border-white rounded inline-flex items-center">
+                    <a href="/about" class="text-white">Find out more</a>
+                
+                   
+                </button>
+            </div>
+        </div>
+
+
+
+
+        <!--Filter button starts here-->
+        <div class="relative inline-block text-left mt-4 mb-4">
+            <button id="filterButton" type="button"
+                class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm bg-white px-3 py-1 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                Filter by Category
+            </button>
+
+            <!-- Dropdown panel, hidden by default -->
+            <div id="filterDropdown"
+                class="origin-top-left relative mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden">
+                <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="filterButton">
+                    <a href="/eventPage/professional"
+                        class="block px-3 py-1 text-xs text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem">Professional Development</a>
+                    <a href="/eventPage/networking"
+                        class="block px-3 py-1 text-xs text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem">Networking</a>
+                    <a href="/eventPage/campusEvent"
+                        class="block px-3 py-1 text-xs text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem">Campus Events</a>
+                </div>
+            </div>
+        </div>
+
+        <!--Filter button ends here-->
+
+
+
+
+        <!-- ====== Cards Section Start -->
+
+        
+        <section class="bg-gray-2 dark:bg-dark pt-12 pb-6 lg:pt-20 lg:pb-12">
+            <div class="w-full px-3 mb-10">
+                <h2 class="text-2xl lg:text-3xl font-semibold text-center text-dark dark:text-white mb-4">
+                    Upcoming Events
+                </h2>
+            <div class="container mx-auto flex flex-wrap">
+                
+                <div class="w-full px-3 md:w-1/2 lg:w-1/4">
+                    
+                    <div
+                        class="mb-6 overflow-hidden duration-300 bg-white rounded-lg dark:bg-dark-2 shadow-1 hover:shadow-3 dark:shadow-card dark:hover:shadow-3">
+                        <img src="../images/campus events.jpg"
+                            alt="image" class="w-full">
+                        <div class="p-6 text-center sm:p-7">
+                            <h3>
+                                <a href="#"
+                                    class="text-dark dark:text-white hover:text-primary mb-3 block text-lg font-semibold sm:text-xl">
+                                    50+ Best creative website themes & templates
+                                </a>
+                            </h3>
+                            <p class="text-sm leading-relaxed text-body-color dark:text-dark-6 mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                            <a href="#"
+                                class="inline-block py-2 text-sm font-medium transition border rounded-full text-body-color hover:border-primary hover:bg-primary border-gray-3 px-5 hover:text-white dark:border-dark-3 dark:text-dark-6">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full px-3 md:w-1/2 lg:w-1/4">
+                    <div
+                        class="mb-6 overflow-hidden duration-300 bg-white rounded-lg dark:bg-dark-2 shadow-1 hover:shadow-3 dark:shadow-card dark:hover:shadow-3">
+                        <img src="../images/networking.jpg"
+                            alt="image" class="w-full">
+                        <div class="p-6 text-center sm:p-7">
+                            <h3>
+                                <a href="#"
+                                    class="text-dark dark:text-white hover:text-primary mb-3 block text-lg font-semibold sm:text-xl">
+                                    50+ Best creative website themes & templates
+                                </a>
+                            </h3>
+                            <p class="text-sm leading-relaxed text-body-color dark:text-dark-6 mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                            <a href="#"
+                                class="inline-block py-2 text-sm font-medium transition border rounded-full text-body-color hover:border-primary hover:bg-primary border-gray-3 px-5 hover:text-white dark:border-dark-3 dark:text-dark-6">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full px-3 md:w-1/2 lg:w-1/4">
+                    <div
+                        class="mb-6 overflow-hidden duration-300 bg-white rounded-lg dark:bg-dark-2 shadow-1 hover:shadow-3 dark:shadow-card dark:hover:shadow-3">
+                        <img src="../images/pexels-monstera-production-6238186.jpg"
+                            alt="image" class="w-full">
+                        <div class="p-6 text-center sm:p-7">
+                            <h3>
+                                <a href="#"
+                                    class="text-dark dark:text-white hover:text-primary mb-3 block text-lg font-semibold sm:text-xl">
+                                    50+ Best creative website themes & templates
+                                </a>
+                            </h3>
+                            <p class="text-sm leading-relaxed text-body-color dark:text-dark-6 mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                            <a href="#"
+                                class="inline-block py-2 text-sm font-medium transition border rounded-full text-body-color hover:border-primary hover:bg-primary border-gray-3 px-5 hover:text-white dark:border-dark-3 dark:text-dark-6">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full px-3 md:w-1/2 lg:w-1/4">
+                    <div
+                        class="mb-6 overflow-hidden duration-300 bg-white rounded-lg dark:bg-dark-2 shadow-1 hover:shadow-3 dark:shadow-card dark:hover:shadow-3">
+                        <img src="../images/campus events.jpg"
+                            alt="image" class="w-full">
+                        <div class="p-6 text-center sm:p-7">
+                            <h3>
+                                <a href="#"
+                                    class="text-dark dark:text-white hover:text-primary mb-3 block text-lg font-semibold sm:text-xl">
+                                    50+ Best creative website themes & templates
+                                </a>
+                            </h3>
+                            <p class="text-sm leading-relaxed text-body-color dark:text-dark-6 mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                            <a href="#"
+                                class="inline-block py-2 text-sm font-medium transition border rounded-full text-body-color hover:border-primary hover:bg-primary border-gray-3 px-5 hover:text-white dark:border-dark-3 dark:text-dark-6">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Card ends here-->
+
+            </div>
+        </section>
+
+
+
+
+        <!--section starts here-->
+        <section class="bg-gray-2 dark:bg-dark pt-12 pb-6 lg:pt-20 lg:pb-12">
+            <div class="w-full px-3 mb-3">
+                <h2 class="text-2xl lg:text-3xl font-semibold text-center text-dark dark:text-white mb-4">
+                    Featured Events
+                </h2>
+            <div class="container mx-auto">
+                <div class="flex flex-wrap">
+                    <div class="w-full px-3 md:w-1/2 lg:w-1/4">
+                        <div
+                            class="mb-6 overflow-hidden duration-300 bg-white rounded-lg dark:bg-dark-2 shadow-1 hover:shadow-3 dark:shadow-card dark:hover:shadow-3">
+                            <img src="../images/istockphoto-951149042-612x612.jpg"
+                                alt="image" class="w-full">
+                            <div class="p-6 text-center sm:p-7">
+                                <h3>
+                                    <a href="#"
+                                        class="text-dark dark:text-white hover:text-primary mb-3 block text-lg font-semibold sm:text-xl">
+                                        50+ Best creative website themes & templates
+                                    </a>
+                                </h3>
+                                <p class="text-sm leading-relaxed text-body-color dark:text-dark-6 mb-4">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                                <a href="#"
+                                    class="inline-block py-2 text-sm font-medium transition border rounded-full text-body-color hover:border-primary hover:bg-primary border-gray-3 px-5 hover:text-white dark:border-dark-3 dark:text-dark-6">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full px-3 md:w-1/2 lg:w-1/4">
+                        <div
+                            class="mb-6 overflow-hidden duration-300 bg-white rounded-lg dark:bg-dark-2 shadow-1 hover:shadow-3 dark:shadow-card dark:hover:shadow-3">
+                            <img src="../images/prefesssional development.jpg"
+                                alt="image" class="w-full">
+                            <div class="p-6 text-center sm:p-7">
+                                <h3>
+                                    <a href="#"
+                                        class="text-dark dark:text-white hover:text-primary mb-3 block text-lg font-semibold sm:text-xl">
+                                        50+ Best creative website themes & templates
+                                    </a>
+                                </h3>
+                                <p class="text-sm leading-relaxed text-body-color dark:text-dark-6 mb-4">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                                <a href="#"
+                                    class="inline-block py-2 text-sm font-medium transition border rounded-full text-body-color hover:border-primary hover:bg-primary border-gray-3 px-5 hover:text-white dark:border-dark-3 dark:text-dark-6">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full px-3 md:w-1/2 lg:w-1/4">
+                        <div
+                            class="mb-6 overflow-hidden duration-300 bg-white rounded-lg dark:bg-dark-2 shadow-1 hover:shadow-3 dark:shadow-card dark:hover:shadow-3">
+                            <img src="../images/pexels-olia-danilevich-8093032.jpg"
+                                alt="image" class="w-full">
+                            <div class="p-6 text-center sm:p-7">
+                                <h3>
+                                    <a href="#"
+                                        class="text-dark dark:text-white hover:text-primary mb-3 block text-lg font-semibold sm:text-xl">
+                                        50+ Best creative website themes & templates
+                                    </a>
+                                </h3>
+                                <p class="text-sm leading-relaxed text-body-color dark:text-dark-6 mb-4">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                                <a href="#"
+                                    class="inline-block py-2 text-sm font-medium transition border rounded-full text-body-color hover:border-primary hover:bg-primary border-gray-3 px-5 hover:text-white dark:border-dark-3 dark:text-dark-6">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full px-3 md:w-1/2 lg:w-1/4">
+                        <div
+                            class="mb-6 overflow-hidden duration-300 bg-white rounded-lg dark:bg-dark-2 shadow-1 hover:shadow-3 dark:shadow-card dark:hover:shadow-3">
+                            <img src="../images/networking.jpg"
+                                alt="image" class="w-full">
+                            <div class="p-6 text-center sm:p-7">
+                                <h3>
+                                    <a href="#"
+                                        class="text-dark dark:text-white hover:text-primary mb-3 block text-lg font-semibold sm:text-xl">
+                                        50+ Best creative website themes & templates
+                                    </a>
+                                </h3>
+                                <p class="text-sm leading-relaxed text-body-color dark:text-dark-6 mb-4">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                                <a href="#"
+                                    class="inline-block py-2 text-sm font-medium transition border rounded-full text-body-color hover:border-primary hover:bg-primary border-gray-3 px-5 hover:text-white dark:border-dark-3 dark:text-dark-6">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </section>
+        <!--section ends here-->
+
+
+
+        <!-- ======  Section Start -->
+        <div class="flex justify-center items-center h-screen">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">Event Countdown</h1>
+                <div id="countdown" class="flex justify-center">
+                    <div class="bg-gray-800 text-white rounded-lg p-4 mx-2">
+                        <span id="days" class="block font-bold text-2xl">00</span>
+                        <span class="text-sm">Days</span>
+                    </div>
+                    <div class="bg-gray-800 text-white rounded-lg p-4 mx-2">
+                        <span id="hours" class="block font-bold text-2xl">00</span>
+                        <span class="text-sm">Hours</span>
+                    </div>
+                    <div class="bg-gray-800 text-white rounded-lg p-4 mx-2">
+                        <span id="minutes" class="block font-bold text-2xl">00</span>
+                        <span class="text-sm">Minutes</span>
+                    </div>
+                    <div class="bg-gray-800 text-white rounded-lg p-4 mx-2">
+                        <span id="seconds" class="block font-bold text-2xl">00</span>
+                        <span class="text-sm">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+
+        <!-- ======  footer Section start -->
+        <footer class="bg-gradient-to-t from-red-500 to-pink-300 text-white">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-red-500">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="/" class="hover:text-red-500">Home</a></li>
+                            <li><a href="/about" class="hover:text-red-500">About Us</a></li>
+                            <li><a href="/Events" class="hover:text-red-500">Events</a></li>
+                            <li><a href="/contact" class="hover:text-red-500">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-red-500">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="/eventPage/networking" class="hover:text-red-500">Networking</a></li>
+                            <li><a href="/eventPage/campusEvent" class="hover:text-red-500">Campus Events</a></li>
+                            <li><a href="/eventPage/professional" class="hover:text-red-500">Professional
+                                    Development</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-red-500">Contact Information</h3>
+                        <p class="text-light-green-500">123 Example Street</p>
+                        <p class="text-light-green-500">City, Country</p>
+                        <p class="text-light-green-500">Email: alumni@ample.com</p>
+                        <p class="text-light-green-500">Phone: +23 456 7890</p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-red-500">Social Media</h3>
+                        <ul class="flex space-x-4">
+                            <li><a href="#" class="text-light-green-500 hover:text-red-500 transition duration-300"><svg
+                                        fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10c5.52 0 10-4.48 10-10c0-5.52-4.48-10-10-10zM17 7h-1.5c-.81 0-1.5.69-1.5 1.5v1.5h3v-1.5c0-.83-.67-1.5-1.5-1.5zM12 7h-1c-.83 0-1.5.67-1.5 1.5v1.5h3v-1.5c0-.83-.67-1.5-1.5-1.5zM7 7H6c-.83 0-1.5.67-1.5 1.5v1.5h3v-1.5c0-.83-.67-1.5-1.5-1.5zM17 12h-1.5v4.5c0 .83.69 1.5 1.5 1.5h1.5v-6zM12 17h-3v-6h3v6zM12 10h-3v-3h3v3z">
+                                        </path>
+                                    </svg></a></li>
+                            <li><a href="github.com"
+                                    class="text-light-green-500 hover:text-red-500 transition duration-300"><svg
+                                        fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
+                                        <path
+                                            d="M12 2C6.47 2 2 6.47 2 12c0 5.25 3.47 9.69 8.22 11.19c-.12-1.06-.22-2.67.05-3.82c.23-.99 1.43-6.65 1.43-6.65s-.37-.75-.37-1.85c0-1.73 1-3.03 2.24-3.03c1.05 0 1.56.79 1.56 1.74c0 1.06-.68 2.64-1.03 4.11c-.3 1.28.63 2.32 1.9 2.32c2.28 0 4.03-2.41 4.03-5.57c0-2.92-2.09-5.01-5.08-5.01c-3.43 0-5.48 2.57-5.48 5.22c0 .96.37 1.99.83 2.54C11.45 9.47 11 10.69 11 12.09c0 3.53 2.27 6.48 5.43 6.48c3.25 0 5.65-2.45 5.65-5.74c0-2.87-1.91-5.18-5.68-5.18z">
+                                        </path>
+                                    </svg></a></li>
+                            <li><a href="https://www.facebook.com" target="blank"
+                                    class="text-light-green-500 hover:text-red-500 transition duration-300"><svg
+                                        fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12c0 4.97 3.86 9.07 8.77 9.92V15.47H7.53V12h3.24V9.45c0-3.21 1.92-4.98 4.84-4.98c1.41 0 2.63.11 2.98.16V7.2h-2.05c-1.6 0-1.91.76-1.91 1.87V12h3.85l-.5 3.47h-3.35v8.33C18.23 21.52 22 17.29 22 12c0-6.63-5.37-12-12-12z">
+                                        </path>
+                                    </svg></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12 border-t border-gray-800 pt-8 md:flex md:items-center md:justify-between">
+                    <p class="text-sm">&copy; 2023 AlumniFushion. All rights reserved.</p>
+
+                </div>
+            </div>
+        </footer>
+        <!-- ======  footer Section end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <script>
+            // Burger menus
+            document.addEventListener('DOMContentLoaded', function () {
+                // open
+                const burger = document.querySelectorAll('.navbar-burger');
+                const menu = document.querySelectorAll('.navbar-menu');
+
+                if (burger.length && menu.length) {
+                    for (var i = 0; i < burger.length; i++) {
+                        burger[i].addEventListener('click', function () {
+                            for (var j = 0; j < menu.length; j++) {
+                                menu[j].classList.toggle('hidden');
+                            }
+                        });
+                    }
+                }
+
+                // close
+                const close = document.querySelectorAll('.navbar-close');
+                const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+                if (close.length) {
+                    for (var i = 0; i < close.length; i++) {
+                        close[i].addEventListener('click', function () {
+                            for (var j = 0; j < menu.length; j++) {
+                                menu[j].classList.toggle('hidden');
+                            }
+                        });
+                    }
+                }
+
+                if (backdrop.length) {
+                    for (var i = 0; i < backdrop.length; i++) {
+                        backdrop[i].addEventListener('click', function () {
+                            for (var j = 0; j < menu.length; j++) {
+                                menu[j].classList.toggle('hidden');
+                            }
+                        });
+                    }
+                }
+            });
+        </script>
+        <script>
+            // Get all date elements
+            const dates = document.querySelectorAll('.date');
+
+            // Example event data
+            const events = [
+                { date: 1, title: 'Event 1', description: 'Description for Event 1' },
+                { date: 2, title: 'Event 2', description: 'Description for Event 2' },
+                { date: 3, title: 'Event 3', description: 'Description for Event 3' },
+                // Add more event data as needed
+            ];
+
+            // Add click event listener to each date element
+            dates.forEach((date) => {
+                date.addEventListener('click', () => {
+                    const selectedDate = parseInt(date.getAttribute('data-date'));
+                    const event = events.find((e) => e.date === selectedDate);
+
+                    if (event) {
+                        // Display event details
+                        document.getElementById('event-title').textContent = event.title;
+                        document.getElementById('event-description').textContent = event.description;
+                        document.getElementById('event-details').classList.remove('hidden');
+                    } else {
+                        // Hide event details if no event found
+                        document.getElementById('event-details').classList.add('hidden');
+                    }
+                });
+            });
+
+            // Functionality for filter and register buttons (add your logic here)
+            const filterButton = document.querySelector('.btn-filter');
+            const registerButton = document.querySelector('.btn-register');
+
+            // Add event listeners and functionality
+            filterButton.addEventListener('click', () => {
+                // Implement filtering logic
+                console.log('Filter button clicked');
+            });
+
+            registerButton.addEventListener('click', () => {
+                // Implement registration logic
+                console.log('Register button clicked');
+            });
+
+
+        </script>
+
+
+        <script>
+            // Set the date of the event (replace with your event's date)
+            const eventDate = new Date('2024-12-31T00:00:00').getTime();
+
+            // Update the countdown every second
+            const countdown = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days < 10 ? `0${days}` : days;
+                document.getElementById('hours').innerText = hours < 10 ? `0${hours}` : hours;
+                document.getElementById('minutes').innerText = minutes < 10 ? `0${minutes}` : minutes;
+                document.getElementById('seconds').innerText = seconds < 10 ? `0${seconds}` : seconds;
+
+                // If the countdown is over, display a message
+                if (distance < 0) {
+                    clearInterval(countdown);
+                    document.getElementById('countdown').innerHTML = "<p class='text-2xl font-bold'>Event Started!</p>";
+                }
+            }, 1000);
+        </script>
+
+        <script>
+            // Get all session cards
+            const sessionCards = document.querySelectorAll('.session-card');
+
+            // Add click event listener to each session card
+            sessionCards.forEach((card) => {
+                card.addEventListener('click', () => {
+                    // Toggle the 'hidden' class for the session details
+                    const details = card.querySelector('p:last-child');
+                    details.classList.toggle('hidden');
+
+                    // Toggle class for smooth transition
+                    card.classList.toggle('expanded');
+                });
+            });
+
+        </script>
+
+        <script>
+            // JavaScript to toggle the dropdown
+            document.addEventListener('DOMContentLoaded', function () {
+                const filterButton = document.getElementById('filterButton');
+                const filterDropdown = document.getElementById('filterDropdown');
+
+                filterButton.addEventListener('click', function () {
+                    filterDropdown.classList.toggle('hidden');
+                });
+
+                // Close the dropdown when clicking outside of it
+                document.addEventListener('click', function (event) {
+                    if (!filterButton.contains(event.target) && !filterDropdown.contains(event.target)) {
+                        filterDropdown.classList.add('hidden');
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const calendarEl = document.getElementById('calendar');
+
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    },
+                    events: [
+                        // Add your event objects here
+                        {
+                            title: 'Event 1',
+                            start: '2023-12-20',
+                            end: '2023-12-22'
+                        },
+                        {
+                            title: 'Event 2',
+                            start: '2023-12-25'
+                        }
+                        // Add more events as needed
+                    ]
+                });
+
+                calendar.render();
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                var $grid = $('.menu-column').isotope({
+                    itemSelector: '.menu-item',
+                    layoutMode: 'fitRows'
+                });
+
+                $('.menu-filter button').on('click', function () {
+                    var filterValue = $(this).attr('data-filter');
+                    $grid.isotope({ filter: filterValue });
+                });
+
+                // Add active class to the current button (highlight it)
+                $('.menu-filter button').on('click', function () {
+                    $(this).addClass('active').siblings().removeClass('active');
+                });
+            });
+        </script>
+        <script>
+            // Function to add session to schedule
+            function addToSchedule(sessionName) {
+                const selectedSessions = document.querySelector('.selected-sessions');
+                const sessionItem = document.createElement('li');
+                sessionItem.textContent = sessionName;
+                selectedSessions.appendChild(sessionItem);
+            }
+
+            // Add click event listener to "Add to Schedule" buttons
+            const addSessionButtons = document.querySelectorAll('.btn-add-session');
+            addSessionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const sessionName = button.parentElement.querySelector('h3').textContent;
+                    addToSchedule(sessionName);
+                });
+            });
+        </script>
+
+    </body>
+
+
+</html>

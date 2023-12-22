@@ -10,20 +10,32 @@ const alumniSchema = new Schema({
         type: String,
         required: true,
     },
+
     password: {
         type: String,
         required: true
     },
-    yearGroup: {
+    // yearGroup: {
+    //     type: String,
+    //     enum:["select","year","group","entity"],
+    //     required: true
+    // },
+    // location: {
+    //     type: String,
+    //     required: true
+    // },
+    role: {
         type: String,
-        enum:["select","year","group","entity"],
-        required: true
-    },
-    location: {
-        type: String,
-        required: true
+        enum:["alumni","admin"],
+        default: 'alumni'
     }
+
+    
+
+
 });
 
-module.exports = mongoose.model('User', alumniSchema);
 
+
+
+module.exports = mongoose.model('User', alumniSchema);

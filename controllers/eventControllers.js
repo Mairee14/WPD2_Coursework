@@ -1,10 +1,15 @@
 const Event = require("../models/eventModels");
 
+ 
 const createEvent = (req, res) => {
+  if(!req.isAuthenticated()){
+    return res.redirect('/form/login');
+  }
     const eventData = req.body;
-    Event.create(eventData)
+    const userId = req.user._id;
+    Event.create({ ...eventData, userId})
         .then((event) => {
-          res.status(200).send({ message: "Event created successfully" });
+         res.redirect('/alumni-events');
         })
         .catch((err) => {
             console.error("an error occurred");
@@ -16,13 +21,31 @@ const createEvent = (req, res) => {
 const getAllEvent = (req, res) => {
     Event.find({})
         .then((events) => {
-            console.log(events);
-            res.render("events", { eventData: events });
+            // console.log(events);
+            
+            res.render("events", { eventData: events,});
         })
         .catch((err) => {
             console.error(err);
             res.status(500).send("Error getting data; please try again");
         });
+};
+
+const getMyEvents = async (req, res) => {
+  try {
+    if(!req.isAuthenticated()){
+      return res.redirect('/form/login');
+    }
+    const userId = req.user._id; // Assuming you have userId available in the request
+    const userEvents = await Event.find({ userId });
+    console.log(req.isAuthenticated());
+    console.log (req.user);
+    // Render the events on a Mustache file named 'alumni-events'
+    res.render('events', { eventData: userEvents, userId: userId});
+  } catch (error) {
+    console.error('Error fetching user events:', error);
+    res.status(500).send('Error fetching user events');
+  }
 };
 
 const updateEvent = (req, res) => {
@@ -76,4 +99,4 @@ const updateEvent = (req, res) => {
 
 
 
-module.exports = { createEvent, getAllEvent, updateEvent, deleteEvent};
+module.exports = { createEvent, getAllEvent, updateEvent, deleteEvent,getMyEvents};
